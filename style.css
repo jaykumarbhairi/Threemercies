@@ -1,0 +1,352 @@
+:root {
+    /* Light Theme */
+    --primary-bg: #f3e9d2;
+    --primary-text: #3d2b1e;
+    --accent: #c44536;
+    --button-bg: #6f4e37;
+    --review-bg: #e6d5c3;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    /* Dark Theme */
+    --primary-bg: #2c1a0f;
+    --primary-text: #e0d5c6;
+    --accent: #d67d3e;
+    --button-bg: #4a3527;
+    --review-bg: #3d2e23;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 2px solid var(--accent);
+}
+
+.logo {
+    width: 100px;
+    filter: brightness(0.8);
+    margin-bottom: 20px;
+}
+
+.enter-btn {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.enter-btn:hover {
+    transform: scale(1.05);
+}
+
+.reviews-section {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: var(--review-bg);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.review-card {
+    background-color: var(--primary-bg);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px var(--border-color);
+}
+
+.rating {
+    color: var(--accent);
+    margin: 10px 0;
+}
+
+.review-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--review-bg);
+    color: var(--primary-text);
+}
+
+.submit-btn {
+    background-color: var(--accent);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 20px 0;
+    }
+    
+    .enter-btn {
+        width: 100%;
+    }
+}
+
+/* Café Main Page Styles */
+#cafe-main {
+    max-width: 800px;
+    padding: 40px 20px;
+}
+
+.cafe-header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.cafe-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.cafe-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.nav-btn {
+    background: var(--review-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.nav-btn .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.nav-btn .label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-text);
+}
+
+.back-btn {
+    background-color: transparent;
+    color: var(--primary-text);
+    border: 2px solid var(--border-color);
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-btn {
+        min-height: 120px;
+        padding: 20px;
+    }
+    
+    .cafe-title {
+        font-size: 2rem;
+    }
+}
+
+/* Menu Page Styles */
+.menu-nav {
+    padding: 1rem;
+    background: var(--review-bg);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.menu-category {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--review-bg);
+    border-radius: 10px;
+}
+
+.menu-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: var(--primary-bg);
+    border-radius: 5px;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--review-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add more styles as needed */
+
+/* Seating Page Styles */
+.seating-section {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.table-type {
+    background: var(--review-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.table-status {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.availability {
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.book-btn {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.book-btn:hover {
+    background-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.booking-item {
+    background: var(--primary-bg);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Easter Eggs Page */
+.subtitle {
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+.easter-egg {
+    background: var(--review-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+}
+
+.easter-egg:hover .hidden-quote {
+    display: block;
+    animation: fadeIn 0.3s ease;
+    
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

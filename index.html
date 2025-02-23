@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    <div class="container">
+        <header class="header">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Coffee Logo" class="logo">
+            <h1>Central Perk Café</h1>
+            <a href="entercafe.html">
+                <button class="enter-btn">Enter Café</button>
+            </a>
+        </header>
+
+        <section class="reviews-section">
+            <h2>What People Are Saying</h2>
+            
+            <div class="reviews-container">
+                <div class="review-card">
+                    <h3>Rachel G.</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Just like the TV show! The virtual experience is amazing!"</p>
+                </div>
+
+                <div class="review-card">
+                    <h3>Ross B.</h3>
+                    <div class="rating">⭐⭐⭐⭐</div>
+                    <p>"Great coffee selection, but where's my sandwich?!"</p>
+                </div>
+            </div>
+
+            <form class="review-form" onsubmit="submitReview(event)">
+                <h3>Write a Review</h3>
+                <input type="text" placeholder="Your Name" required>
+                <textarea placeholder="Your Review" rows="3" required></textarea>
+                <div class="rating-input">
+                    <label>Rating:</label>
+                    <select required>
+                        <option value="">Choose...</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="1">⭐</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

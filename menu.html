@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    <!-- Navigation Bar -->
+    <nav class="menu-nav">
+        <button onclick="toggleSection('menu')">☕ Menu</button>
+        <button onclick="toggleChat()">💬 Barista Chat</button>
+        <button onclick="toggleSection('cart')">🛒 Cart (<span id="cart-count">0</span>)</button>
+        <button onclick="toggleSection('favorites')">❤️ Favorites</button>
+        
+    </nav>
+
+    <!-- Main Menu -->
+    <div class="container" id="menu-section">
+        <h1>Central Perk Menu</h1>
+        
+        <!-- Beverages -->
+        <div class="menu-category">
+            <h2>☕ Beverages</h2>
+            <ul class="menu-items">
+                <li>
+                    <span>Coffee (Various Types) - $3.50</span>
+                    <button onclick="addToCart('Coffee', 3.50)">Add to Cart</button>
+                    <button onclick="addToFavorites('Coffee')">❤️</button>
+                </li>
+                <li>
+                    <span>Espresso - $4.00</span>
+                    <button onclick="addToCart('Espresso', 4.00)">Add to Cart</button>
+                    <button onclick="addToFavorites('Espresso')">❤️</button>
+                </li>
+                <li>
+                    <span>Cappuccino - $4.50</span>
+                    <button onclick="addToCart('Cappuccino', 4.50)">Add to Cart</button>
+                    <button onclick="addToFavorites('Cappuccino')">❤️</button>
+                </li>
+                <li>
+                    <span>Latte - $4.75</span>
+                    <button onclick="addToCart('Latte', 4.75)">Add to Cart</button>
+                    <button onclick="addToFavorites('Latte')">❤️</button>
+                </li>
+                <li>
+                    <span>Tea - $3.00</span>
+                    <button onclick="addToCart('Tea', 3.00)">Add to Cart</button>
+                    <button onclick="addToFavorites('Tea')">❤️</button>
+                </li>
+                <li>
+                    <span>Hot Chocolate - $4.25</span>
+                    <button onclick="addToCart('Hot Chocolate', 4.25)">Add to Cart</button>
+                    <button onclick="addToFavorites('Hot Chocolate')">❤️</button>
+                </li>
+                <li>
+                    <span>Orange Juice - $3.75</span>
+                    <button onclick="addToCart('Orange Juice', 3.75)">Add to Cart</button>
+                    <button onclick="addToFavorites('Orange Juice')">❤️</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Food Items -->
+        <div class="menu-category">
+            <h2>🥐 Food Items</h2>
+            <ul class="menu-items">
+                <li>
+                    <span>Muffins - $2.50</span>
+                    <button onclick="addToCart('Muffins', 2.50)">Add to Cart</button>
+                    <button onclick="addToFavorites('Muffins')">❤️</button>
+                </li>
+                <li>
+                    <span>Bagels - $3.00</span>
+                    <button onclick="addToCart('Bagels', 3.00)">Add to Cart</button>
+                    <button onclick="addToFavorites('Bagels')">❤️</button>
+                </li>
+                <li>
+                    <span>Croissants - $3.25</span>
+                    <button onclick="addToCart('Croissants', 3.25)">Add to Cart</button>
+                    <button onclick="addToFavorites('Croissants')">❤️</button>
+                </li>
+                <li>
+                    <span>Cookies - $2.00</span>
+                    <button onclick="addToCart('Cookies', 2.00)">Add to Cart</button>
+                    <button onclick="addToFavorites('Cookies')">❤️</button>
+                </li>
+                <li>
+                    <span>Sandwiches - $5.50</span>
+                    <button onclick="addToCart('Sandwiches', 5.50)">Add to Cart</button>
+                    <button onclick="addToFavorites('Sandwiches')">❤️</button>
+                </li>
+                <li>
+                    <span>Cakes/Pastries - $4.50</span>
+                    <button onclick="addToCart('Cakes/Pastries', 4.50)">Add to Cart</button>
+                    <button onclick="addToFavorites('Cakes/Pastries')">❤️</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="container hidden" id="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- Favorites Section -->
+    <div class="container hidden" id="favorites-section">
+        <h2>Your Favorites</h2>
+        <div id="favorites-list"></div>
+    </div>
+
+    <!-- Chat Bot -->
+    <div class="chat-container hidden" id="chat-box">
+        <div class="chat-header">
+            <h3>Barista Chat Bot</h3>
+            <button onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Ask me for recommendations...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk - Friends Easter Eggs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    
+
+    <div class="container">
+        <h1>Friends Easter Eggs</h1>
+        <p class="subtitle">Find hidden Friends references around the café!</p>
+
+        <!-- Easter Egg Elements -->
+        <div class="easter-egg-container">
+            <!-- Central Perk Couch -->
+            <div class="easter-egg" id="couch" onclick="revealQuote('couch')">
+                🛋️
+                <span class="hidden-quote">"Welcome to Central Perk! Grab a seat!"</span>
+            </div>
+
+            <!-- Thanksgiving Turkey -->
+            <div class="easter-egg" id="turkey" onmouseover="startTurkeyDance()">
+                🦃
+                <span class="hidden-quote">"They don't know that we know they know we know!"</span>
+            </div>
+
+            <!-- Pizza Box -->
+            <div class="easter-egg" id="pizza" onclick="revealQuote('pizza')">
+                🍕
+                <span class="hidden-quote">"Joey doesn't share food!!"</span>
+            </div>
+
+            <!-- Frame with Duck and Chick -->
+            <div class="easter-egg" id="frame" onclick="startPivotAnimation()">
+                🖼️
+                <span class="hidden-quote">"PIVOT!! PIVOT!! PIVOT!!"</span>
+            </div>
+        </div>
+
+        <!-- Quotes Display -->
+        <div id="quote-display"></div>
+    </div>
+
+    <script>
+        // Easter Egg Functions
+        function revealQuote(elementId) {
+            const quote = document.querySelector(`#${elementId} .hidden-quote`).textContent;
+            const display = document.getElementById('quote-display');
+            display.textContent = quote;
+            display.classList.add('show-quote');
+            setTimeout(() => display.classList.remove('show-quote'), 3000);
+        }
+
+        function startTurkeyDance() {
+            const turkey = document.getElementById('turkey');
+            turkey.style.animation = 'turkeyDance 1s infinite';
+            setTimeout(() => turkey.style.animation = '', 2000);
+        }
+
+        function startPivotAnimation() {
+            const frame = document.getElementById('frame');
+            frame.style.animation = 'pivotShake 0.5s infinite';
+            setTimeout(() => frame.style.animation = '', 1000);
+            revealQuote('frame');
+        }
+    </script>
+
+    <style>
+        /* Easter Egg Specific Styles */
+        .easter-egg-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .easter-egg {
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .easter-egg:hover {
+            transform: scale(1.1);
+        }
+
+        .hidden-quote {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--review-bg);
+            padding: 0.9rem;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        #quote-display {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            font-size: 0.9rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .show-quote {
+            opacity: 1 !important;
+        }
+
+        /* Animations */
+        @keyframes turkeyDance {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        @keyframes pivotShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+        }
+    </style>
+</body>
+</html>

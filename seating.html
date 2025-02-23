@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk Seating</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    <nav class="menu-nav">
+        
+        <button onclick="showBookingStatus()">My Bookings</button>
+    </nav>
+
+    <div class="container">
+        <h1>Seating Arrangement</h1>
+        
+        <div class="seating-section">
+            <!-- Single Occupancy -->
+            <div class="table-type">
+                <h2>☕ Single Occupancy</h2>
+                <div class="table-status">
+                    <span class="availability" id="single-available">5</span> tables available
+                </div>
+                <button class="book-btn" onclick="bookTable('single')">Book Now</button>
+            </div>
+
+            <!-- Double Occupancy -->
+            <div class="table-type">
+                <h2>👫 Double Occupancy</h2>
+                <div class="table-status">
+                    <span class="availability" id="double-available">3</span> tables available
+                </div>
+                <button class="book-btn" onclick="bookTable('double')">Book Now</button>
+            </div>
+
+            <!-- Group Tables -->
+            <div class="table-type">
+                <h2>👪 Group Tables (4-6 people)</h2>
+                <div class="table-status">
+                    <span class="availability" id="group-available">2</span> tables available
+                </div>
+                <button class="book-btn" onclick="bookTable('group')">Book Now</button>
+            </div>
+        </div>
+
+        <div id="booking-status" class="hidden">
+            <h2>Your Bookings</h2>
+            <div id="bookings-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize random availability
+        const availability = {
+            single: Math.floor(Math.random() * 6),
+            double: Math.floor(Math.random() * 4),
+            group: Math.floor(Math.random() * 3)
+        };
+
+        // Initialize bookings array
+        let bookings = [];
+
+        function updateDisplay() {
+            document.getElementById('single-available').textContent = availability.single;
+            document.getElementById('double-available').textContent = availability.double;
+            document.getElementById('group-available').textContent = availability.group;
+        }
+
+        function bookTable(type) {
+            if(availability[type] > 0) {
+                availability[type]--;
+                bookings.push({
+                    type: type,
+                    time: new Date().toLocaleTimeString()
+                });
+                updateDisplay();
+                showConfirmation(type);
+                updateBookingsList();
+            }
+        }
+
+        function showConfirmation(type) {
+            alert(`Booked ${type} table successfully!\nAvailable tables: ${availability[type]}`);
+        }
+
+        function showBookingStatus() {
+            const statusDiv = document.getElementById('booking-status');
+            statusDiv.classList.toggle('hidden');
+        }
+
+        function updateBookingsList() {
+            const listDiv = document.getElementById('bookings-list');
+            listDiv.innerHTML = bookings.map(booking => `
+                <div class="booking-item">
+                    ${booking.type} table - Booked at ${booking.time}
+                </div>
+            `).join('');
+        }
+
+        // Initialize availability on load
+        window.onload = updateDisplay;
+    </script>
+</body>
+</html>

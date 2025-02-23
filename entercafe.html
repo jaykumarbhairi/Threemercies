@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk Café - Main</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    <div id="cafe-main" class="container">
+        <header class="cafe-header">
+        <h1 class="cafe-title">Welcome to Central Perk Café</h1>
+        <div class="nav-container">
+            <a href="menu.html">
+            <button class="nav-btn" onclick="showSection('menu')">
+                <span class="icon">☕</span>
+                <span class="label">Menu Dashboard</span>
+            </button>
+            </a>
+
+            <a href="seating.html">
+            <button class="nav-btn" onclick="showSection('seating')">
+                <span class="icon">🪑</span>
+                <span class="label">Seating Arrangement</span>
+            </button>
+            </a>
+
+            <a href="friends.html">
+            <button class="nav-btn" onclick="showSection('easter-eggs')">
+                <span class="icon">🎉</span>
+                <span class="label">Friends Easter Eggs</span>
+            </button>
+            </a>
+        </div>
+        <a href="index.html"
+        <button class="back-btn" onclick="goBack()">← Return to Entrance</button>
+        </a>
+    </header>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
